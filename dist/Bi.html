@@ -1,0 +1,164 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! 🎉</title>
+<link rel="stylesheet" href="./Bi.css">
+
+</head>
+<body>
+  
+    <audio id="bg-music" autoplay loop muted>
+  <source src="Ed Sheeran, Pokémon - Celestial [Official Video].mp3">
+</audio>
+    <!-- Confetti Effect -->
+    <div id="confetti-container"></div>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="birthday-icon">🎂</div>
+                <h1>Happy Birthday! 🎉</h1>
+                <p class="subtitle">My Lily Star. ✨</p>
+            </div>
+        </header>
+
+        <section class="photo-gallery">
+            <!-- Photo 1 -->
+            <div class="photo-item">
+                <img src="Image/Fav.jpg" class="photo-img">
+                <div class="photo-description">
+                    <h3>Happy Birthday🎈</h3>
+                    <p> Happy Birthday to a truly beautiful soul! You deserve all the love, laughter, and blessings the world can give today and always.🌅</p>
+                </div>
+            </div>
+
+            <!-- Photo 2 -->
+            <div class="photo-item">
+                <img src="Image/Smile.jpg" alt="Fun Times" class="photo-img">
+                <div class="photo-description">
+                    <h3>Unforgettable Moments! ✨</h3>
+                    <p>Wishing you a day filled with sunshine, smiles, and sweet surprises — just like you.🌟</p>
+                </div>
+            </div>
+
+            <!-- Photo 3 -->
+            <div class="photo-item">
+                <img src="Image/Trans.jpg" alt="Celebration" class="photo-img">
+                <div class="photo-description">
+                    <h3>Pure Joy! 😄</h3>
+                    <p>You make every day brighter, and today I hope the world shines even brighter for you. Happy Birthday, my dear friend! 💖</p>
+                </div>
+            </div>
+
+
+
+            <!-- Photo 5 -->
+            <div class="photo-item">
+                <img src="Image/Lilystar.jpg" class="photo-img">
+                <div class="photo-description">
+                    <h3>That Beautiful Smile! 😊</h3>
+                    <p>Your smile can light up the darkest of days! This photo always reminds me how Beautiful and lovly your smile is   and may God continue to add more and more smile to your life.! ☀️</p>
+                </div>
+            </div>
+
+            <!-- Photo 6 -->
+            <div class="photo-item">
+                <img src="Image/Magic.jpg" class="photo-img">
+                <div class="photo-description">
+                    <h3>Friends Forever! 👫</h3>
+                    <p>You make every day brighter, and today I hope the world shines even brighter for you. Happy Birthday, my dear friend!  🥂 Cheers to more laughter, endless love, and unforgettable memories. You deserve it all, beautiful.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="wishes-section">
+            <h2>Birthday Wishes! 🎁</h2>
+            <div class="emoji-row">🎉 🎂 🎈 🎁 ✨</div>
+            <p>On your special day, I wish you all the happiness, success, and love in the world! May this year bring you closer to your dreams and fill your life with beautiful moments! 🌟</p>
+            <p>You deserve the absolute best because you're an amazing person with a heart of gold!💖</p>
+            <div class="gift-box" id="giftBox">
+  <div class="lid"></div>
+  <div class="bow"></div>
+  <div class="box"></div>
+  <div class="surprise-text">🎉 Surprise!</div>
+</div>
+
+<div class="download-btn" id="downloadBtn">
+  <button><a href="www.jpg" download>Download Design</a></button>
+</div>
+<div class="download-btn" id="downloadBtn">
+  <button ><a href="Pin.jpg" download>Download Design</a></button>
+</div>
+
+<br>
+
+
+        </section>
+
+        <footer>
+            <p>Made with ❤️ for your special day! | Happy 17th Birthday! 🎉</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create confetti effect
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#ff9ff3', '#54a0ff'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.width = Math.random() * 15 + 5 + 'px';
+                confetti.style.height = confetti.style.width;
+                container.appendChild(confetti);
+            }
+        }
+
+        // Scroll animation for elements
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.photo-item, .wishes-section');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize
+        window.addEventListener('load', () => {
+            createConfetti();
+            checkVisibility();
+        });
+
+        window.addEventListener('scroll', checkVisibility);
+        const giftBox = document.getElementById('giftBox');
+  const downloadBtn = document.getElementById('downloadBtn');
+
+  giftBox.addEventListener('click', () => {
+    giftBox.classList.add('shake');
+
+    setTimeout(() => {
+      giftBox.classList.remove('shake');
+      giftBox.classList.add('open');
+      downloadBtn.classList.add('open');
+    }, 600);
+  });
+  
+  const music = document.getElementById("bg-music");
+  document.body.addEventListener("click", () => {
+    music.muted = false;
+    music.play();
+  }, { once: true });
+    </script>
+</body>
+</html>

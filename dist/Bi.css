@@ -1,0 +1,390 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --accent: #ffe66d;
+            --dark: #292f36;
+            --light: #f7fff7;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #ffe66d);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: bolder;
+        }
+
+        .birthday-icon {
+            font-size: 5rem;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .photo-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s, box-shadow 0.5s;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .photo-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .photo-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        .photo-description {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .photo-description h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .photo-description p {
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        .wishes-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 1s;
+        }
+
+        .wishes-section.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .wishes-section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .wishes-section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .emoji-row {
+            font-size: 2rem;
+            margin: 20px 0;
+            animation: spin 5s infinite linear;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 50px;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            background-color: var(--accent);
+            opacity: 0.8;
+            border-radius: 50%;
+            animation: confettiFall 5s linear infinite;
+            z-index: 1000;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .birthday-icon {
+                font-size: 3rem;
+            }
+            
+            .wishes-section {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .photo-description h3 {
+                font-size: 1.2rem;
+            }
+            
+            .photo-description p {
+                font-size: 1rem;
+            }
+        }
+        
+          .gift-box {
+            margin-top: 90px;
+            margin-left: 70px;
+    position: relative;
+    width: 140px;
+    height: 150px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  /* Bottom part of box */
+  .gift-box .box {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    background: #ff3b3b;
+    border-radius: 0 0 10px 10px;
+  }
+
+  /* Vertical ribbon */
+  .gift-box .box::before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    background: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Horizontal ribbon */
+  .gift-box .box::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 25px;
+    background: #fff;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Lid */
+  .gift-box .lid {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: #e60000;
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.6s ease;
+  }
+
+  /* Bow on top */
+  .gift-box .bow {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 25px;
+  }
+
+  .bow::before, .bow::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 25px;
+    background: #ffcccc;
+    border-radius: 50%;
+  }
+
+  .bow::before {
+    left: 0;
+    transform: rotate(-25deg);
+  }
+
+  .bow::after {
+    right: 0;
+    transform: rotate(25deg);
+  }
+
+  /* Surprise text */
+  .surprise-text {
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    color: #pink;
+    opacity: 0;
+    transition: all 0.8s ease;
+    font-weight: bold;
+  }
+
+  /* Button */
+  .download-btn {
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+  }
+
+  .download-btn button {
+    background: #ff0033;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .but-troub {
+    margin-top: 10px;
+  }
+a {
+  color: white;
+  text-decoration: none;
+}
+  .download-btn button:hover {
+    background: #cc0026;
+  }
+
+  /* Shake animation */
+  @keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    20% { transform: rotate(-8deg); }
+    40% { transform: rotate(8deg); }
+    60% { transform: rotate(-8deg); }
+    80% { transform: rotate(8deg); }
+  }
+
+  .shake {
+    animation: shake 0.6s ease-in-out;
+  }
+
+  /* Lid opens */
+  .open .lid {
+    transform: rotateX(150deg) translateY(-40px);
+  }
+
+  .open .surprise-text {
+    opacity: 1;
+    transform: translateY(-130px) scale(1.2);
+  }
+
+  .open + .download-btn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+    
